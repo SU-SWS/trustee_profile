@@ -1,6 +1,6 @@
 {
     "name": "su-sws/trustee_profile",
-    "description": "Installation Profile for the Trustee Website.",
+    "description": "Installation Profile for the Stanford Board of Trustees Intranet sites.",
     "type": "drupal-custom-profile",
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
