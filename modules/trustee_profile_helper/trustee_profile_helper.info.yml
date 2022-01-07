@@ -1,5 +1,5 @@
 name: 'Board of Trustee Profile Helper'
 type: module
-description: 'Add on module and functionality for CAW.'
+description: 'Add on module and functionality for Board of Trustees.'
 core_version_requirement: ^8.8 || ^9
 package: 'trustee'
