@@ -192,6 +192,7 @@ module:
   externalauth: 10
   menu_link_weight: 10
   trustee_profile_helper: 10
+  stanford_profile_helper: 10
   paragraphs: 11
   trustee_profile: 1000
 theme:
