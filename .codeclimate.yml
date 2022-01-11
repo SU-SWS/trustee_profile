@@ -111,6 +111,15 @@ plugins:
         - dsm
 # exclude these files/paths
 exclude_patterns:
-  - "tests/"
-  - "**.min.*"
-  - "config/circleci.settings.php"
+- "test"
+- "tests"
+- "**/tests/**/*"
+- "vendor"
+- "vendors"
+- "node_modules"
+- "composer.json"
+- "package.json"
+- "webpack.config.js"
+- "**.min.*"
+- "spec/"
+- "dist/"
