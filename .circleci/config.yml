@@ -70,6 +70,24 @@ d9_codeception: &d9_codeception
     - store_artifacts:
         path: /var/www/html/artifacts
 
+merge_upstream: &merge_upstream
+  <<: *defaults
+  steps:
+    - checkout:
+        path: /var/www/html
+    - run:
+        name: Merge stanford_profile upstream
+        command: |
+          git config --global user.email "sws-developers@lists.stanford.edu"
+          git config --global user.name "CircleCI"
+          git pull https://github.com/SU-SOE/soe_profile.git 8.x-2.x -X ours --no-edit
+          if [[ $(git diff origin/${CIRCLE_BRANCH} --name-only) ]]; then
+            DATE=`date +%Y-%m-%d`
+            git checkout -b ${DATE}
+            git push origin ${DATE}
+            hub pull-request --base=${CIRCLE_BRANCH} --message="Updates from stanford_profile" --assign=imonroe
+          fi
+
 # Declare all of the jobs we should run.
 jobs:
   run-coverage:
@@ -80,6 +98,8 @@ jobs:
     <<: *d8_codeception
   run-d9-codeception:
     <<: *d9_codeception
+  run-merge-upstream:
+    <<: *merge_upstream
 
 # Declare a workflow that runs all of our jobs in parallel.
 workflows:
@@ -109,4 +129,4 @@ workflows:
           filters:
             branches:
               only:
-                - 8.x-1.x
+                - 8.x-2.x
