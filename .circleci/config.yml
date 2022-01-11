@@ -120,13 +120,13 @@ workflows:
 #      - run-d8-codeception
       - run-d9-codeception
   # Re-test every sunday in case this code becomes stale.
-  sundays:
+  daily:
     jobs:
-      - run-coverage
+      - run-merge-upstream
     triggers:
       - schedule:
-          cron: "0 0 * * 0"
+          cron: "1 18 * * *"
           filters:
             branches:
               only:
-                - 8.x-2.x
+                - /8.x-2.x/
