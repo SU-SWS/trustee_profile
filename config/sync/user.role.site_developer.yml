@@ -72,6 +72,7 @@ dependencies:
     - system
     - taxonomy
     - toolbar
+    - trustee_profile
     - ui_patterns_library
     - view_unpublished
     - views_bulk_edit
