@@ -37,7 +37,6 @@ dependencies:
     - redirect
     - role_delegation
     - stanford_migrate
-    - stanford_profile
     - stanford_publication
     - system
     - taxonomy
