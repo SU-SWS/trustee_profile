@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\stanford_profile\Annotation;
+namespace Drupal\trustee_profile\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
 

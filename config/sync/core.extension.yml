@@ -191,12 +191,13 @@ module:
   config_pages_overrides: 10
   externalauth: 10
   menu_link_weight: 10
+  trustee_profile_helper: 10
   stanford_profile_helper: 10
   paragraphs: 11
-  stanford_profile: 1000
+  trustee_profile: 1000
 theme:
   stable: 0
   seven: 0
   stanford_basic: 0
   stable9: 0
-profile: stanford_profile
+profile: trustee_profile

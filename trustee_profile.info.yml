@@ -1,5 +1,5 @@
-name: 'Stanford Profile'
-description: 'Jumpstart Website Profile'
+name: 'Trustee Profile'
+description: 'Jumpstart Website Profile for Board of Trustees Intranet sites'
 version: 8.x-2.16-dev
 type: profile
 project: Jumpstart

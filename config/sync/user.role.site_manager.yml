@@ -37,11 +37,11 @@ dependencies:
     - redirect
     - role_delegation
     - stanford_migrate
-    - stanford_profile
     - stanford_publication
     - system
     - taxonomy
     - toolbar
+    - trustee_profile
     - ui_patterns_library
     - view_unpublished
     - views_bulk_edit
