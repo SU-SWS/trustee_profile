@@ -7,6 +7,7 @@ dependencies:
     - media.type.file
     - media.type.google_form
     - media.type.image
+    - media.type.stanford_gallery_images
     - media.type.video
     - node.type.stanford_event
     - node.type.stanford_event_series
@@ -36,6 +37,7 @@ dependencies:
     - rabbit_hole
     - redirect
     - role_delegation
+    - scheduler
     - stanford_migrate
     - stanford_publication
     - system
@@ -88,6 +90,7 @@ permissions:
   - 'create media'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
+  - 'create stanford_gallery_images media'
   - 'create stanford_news content'
   - 'create stanford_page content'
   - 'create stanford_person content'
@@ -107,6 +110,7 @@ permissions:
   - 'delete any media'
   - 'delete any stanford_event content'
   - 'delete any stanford_event_series content'
+  - 'delete any stanford_gallery_images media'
   - 'delete any stanford_news content'
   - 'delete any stanford_page content'
   - 'delete any stanford_person content'
@@ -120,6 +124,7 @@ permissions:
   - 'delete own image media'
   - 'delete own stanford_event content'
   - 'delete own stanford_event_series content'
+  - 'delete own stanford_gallery_images media'
   - 'delete own stanford_news content'
   - 'delete own stanford_page content'
   - 'delete own stanford_person content'
@@ -144,6 +149,7 @@ permissions:
   - 'edit any image media'
   - 'edit any stanford_event content'
   - 'edit any stanford_event_series content'
+  - 'edit any stanford_gallery_images media'
   - 'edit any stanford_news content'
   - 'edit any stanford_page content'
   - 'edit any stanford_person content'
@@ -160,6 +166,7 @@ permissions:
   - 'edit own image media'
   - 'edit own stanford_event content'
   - 'edit own stanford_event_series content'
+  - 'edit own stanford_gallery_images media'
   - 'edit own stanford_news content'
   - 'edit own stanford_page content'
   - 'edit own stanford_person content'
@@ -188,6 +195,7 @@ permissions:
   - 'revert stanford_page revisions'
   - 'revert stanford_person revisions'
   - 'revert stanford_publication revisions'
+  - 'schedule publishing of nodes'
   - 'update any media'
   - 'update any stanford_component_block block content'
   - 'update media'
@@ -204,6 +212,7 @@ permissions:
   - 'view editoria11y checker'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view scheduled content'
   - 'view stanford_event revisions'
   - 'view stanford_event_series revisions'
   - 'view stanford_news revisions'
