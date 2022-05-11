@@ -1,4 +1,4 @@
-# Stanford Profile
+# Trustee Profile
 
 
 8.x-3.2
@@ -13,7 +13,6 @@ _Release Date: 2022-03-22_
 _Release Date: 2022-03-22_
 
 - Merge branch 'main' into 8.x
-
 
 8.x-2.20
 --------------------------------------------------------------------------------
