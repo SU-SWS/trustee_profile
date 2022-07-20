@@ -7,6 +7,27 @@ use Faker\Factory;
  */
 class EntityReferenceCest {
 
+   /**
+   * Faker service.
+   *
+   * @var \Faker\Generator
+   */
+  protected $faker;
+
+  /**
+   * Keyed array of field values.
+   *
+   * @var array
+   */
+  protected $fieldValues = [];
+
+  /**
+   * Test constructor.
+   */
+  public function __construct() {
+    $this->faker = Factory::create();
+  }
+
   /**
    * Allow all paragraph types by using state.
    */
