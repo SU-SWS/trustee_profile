@@ -96,7 +96,7 @@
         }
     ],
     "require": {
-        "su-sws/stanford_profile": "8.x-dev"
+        "su-sws/stanford_profile": "^8.5"
     },
     "config": {
         "sort-packages": true

@@ -1,9 +1,18 @@
 # Trustee Profile
 
-1.0.1
+1.1.0
 --------------------------------------------------------------------------------
 _Release Date: TBD_
 
+- Upgraded Drupal Core to 9.4.3
+- Updated configs for latest core and contrib modules
+- Hide "Sticky" and "Promote" fields on node form
+- Fix duplicates in course lists
+- D8CORE-2215: Let editors sort content by author (#551)
+- D8CORE-5824: Added a second provider for Stanford University Library oEmbeds (#548)
+- Fixed composer namespace to lowercase
+- Removed fzaninotto/faker workaround in CI tests
+- Adjusted functional tests (#577)
 - D8CORE-1835: Added abbr buttons to ckeditor (#550)
 - D8CORE-4780 Changed search page button text to "Search"
 - D8CORE-5862: Removed obsolete checkbox from theme settings (#575)
