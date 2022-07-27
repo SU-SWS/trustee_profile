@@ -2,7 +2,7 @@
 
 1.1.0
 --------------------------------------------------------------------------------
-_Release Date: TBD_
+_Release Date: 2022-07-27_
 
 - Upgraded Drupal Core to 9.4.3
 - Updated configs for latest core and contrib modules
