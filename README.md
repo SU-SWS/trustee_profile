@@ -1,6 +1,6 @@
 # [Trustee Profile](https://github.com/SU-SWS/trustee_profile)
-##### 8.x
-[![CircleCI](https://circleci.com/gh/SU-SWS/trustee_profile/tree/8.x-2.x.svg?style=svg)](https://circleci.com/gh/SU-SWS/trustee_profile/tree/8.x-2.x)
+##### 1.x
+[![CircleCI](https://circleci.com/gh/SU-SWS/trustee_profile.svg?style=svg)](https://circleci.com/gh/SU-SWS/trustee_profile)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9e16872314a79186f4fe/test_coverage)](https://codeclimate.com/github/SU-SWS/trustee_profile/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9e16872314a79186f4fe/maintainability)](https://codeclimate.com/github/SU-SWS/trustee_profile/maintainability)
 
@@ -32,7 +32,7 @@ Releases
 ---
 
 Steps to build a new release:
-- Checkout the latest commit from the `8.x-1.x` branch.
+- Checkout the latest commit from the `1.x` branch.
 - Create a new branch for the release.
 - Commit any necessary changes to the release branch.
   -  These may include, but are not necessarily limited to:
