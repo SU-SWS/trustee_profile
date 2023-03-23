@@ -248,14 +248,6 @@
                 "drush.services.yml": "^9"
             }
         },
-<<<<<<< HEAD
-        "patches": {
-            "drupal/ckeditor_blockimagepaste": {
-                "https://www.drupal.org/project/ckeditor_blockimagepaste/issues/3272772": "https://www.drupal.org/files/issues/2022-04-14/prevent_js_alert_and_block_ms_word_paste-v2.patch"
-            }
-        }
-=======
         "patches": {}
->>>>>>> f653414972268a885979a72ffa0d0ae900705354
     }
 }
