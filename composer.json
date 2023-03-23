@@ -239,7 +239,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Drupal\\Tests\\stanford_profile\\": "tests/src"
+            "Drupal\\Tests\\trustee_profile\\": "tests/src"
         }
     },
     "extra": {

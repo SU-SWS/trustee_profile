@@ -63,7 +63,6 @@ dependencies:
     - shortcut
     - stanford_media
     - stanford_policy
-    - stanford_profile
     - stanford_publication
     - system
     - taxonomy
