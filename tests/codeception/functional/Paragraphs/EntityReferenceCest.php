@@ -36,27 +36,6 @@ class EntityReferenceCest {
   }
 
   /**
-   * Faker service.
-   *
-   * @var \Faker\Generator
-   */
-  protected $faker;
-
-  /**
-   * Keyed array of field values.
-   *
-   * @var array
-   */
-  protected $fieldValues = [];
-
-  /**
-   * Test constructor.
-   */
-  public function __construct() {
-    $this->faker = Factory::create();
-  }
-
-  /**
    * News items should display in the list paragraph.
    */
   public function testEntityReference(FunctionalTester $I) {
