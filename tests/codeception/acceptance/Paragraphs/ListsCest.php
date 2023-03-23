@@ -26,8 +26,91 @@ class ListsCest {
   /**
    * Shared tags on each content type are identical.
    */
-  public function _before() {
-    \Drupal::state()->set('trustee_profile_allow_all_paragraphs', TRUE);
+  public function testSharedTags(AcceptanceTester $I) {
+    $shared_tag = $I->createEntity([
+      'name' => $this->faker->jobTitle,
+      'vid' => 'su_shared_tags',
+    ], 'taxonomy_term');
+    $basic_page = $I->createEntity([
+      'title' => $this->faker->text(20),
+      'type' => 'stanford_page',
+      'su_shared_tags' => $shared_tag->id(),
+    ]);
+    $news = $I->createEntity([
+      'title' => $this->faker->text(20),
+      'type' => 'stanford_news',
+      'su_shared_tags' => $shared_tag->id(),
+    ]);
+    $event = $I->createEntity([
+      'title' => $this->faker->text(20),
+      'type' => 'stanford_event',
+      'su_shared_tags' => $shared_tag->id(),
+    ]);
+    $person = $I->createEntity([
+      'su_person_first_name' => $this->faker->firstName,
+      'su_person_last_name' => $this->faker->lastName,
+      'type' => 'stanford_person',
+      'su_shared_tags' => $shared_tag->id(),
+    ]);
+    $publication = $I->createEntity([
+      'title' => $this->faker->text(20),
+      'type' => 'stanford_publication',
+      'su_shared_tags' => $shared_tag->id(),
+    ]);
+
+    // List with all content types.
+    $node_list = $this->getNodeWithList($I, [
+      'target_id' => 'stanford_shared_tags',
+      'display_id' => 'card_grid',
+      'items_to_display' => 100,
+      'arguments' => $shared_tag->label(),
+    ]);
+    $I->amOnPage($node_list->toUrl()->toString());
+    $I->canSee($basic_page->label());
+    $I->canSee($news->label());
+    $I->canSee($event->label());
+    $I->canSee($person->label());
+    $I->canSee($publication->label());
+
+    // List with only events and news.
+    $node_list = $this->getNodeWithList($I, [
+      'target_id' => 'stanford_shared_tags',
+      'display_id' => 'card_grid',
+      'items_to_display' => 100,
+      'arguments' => $shared_tag->label() . '/stanford_event+stanford_news',
+    ]);
+    $I->amOnPage($node_list->toUrl()->toString());
+    $I->cantSee($basic_page->label());
+    $I->canSee($news->label());
+    $I->canSee($event->label());
+    $I->cantSee($person->label());
+    $I->cantSee($publication->label());
+
+    // List with only people.
+    $node_list = $this->getNodeWithList($I, [
+      'target_id' => 'stanford_shared_tags',
+      'display_id' => 'card_grid',
+      'items_to_display' => 100,
+      'arguments' => $shared_tag->label() . '/stanford_person',
+    ]);
+    $I->amOnPage($node_list->toUrl()->toString());
+    $I->cantSee($basic_page->label());
+    $I->cantSee($news->label());
+    $I->cantSee($event->label());
+    $I->canSee($person->label());
+    $I->cantSee($publication->label());
+
+    $I->logInWithRole('contributor');
+    $I->amOnPage($basic_page->toUrl('edit-form')->toString());
+    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->amOnPage($news->toUrl('edit-form')->toString());
+    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->amOnPage($event->toUrl('edit-form')->toString());
+    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->amOnPage($person->toUrl('edit-form')->toString());
+    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
+    $I->amOnPage($publication->toUrl('edit-form')->toString());
+    $I->canSeeOptionIsSelected('Shared Tags', $shared_tag->label());
   }
 
   /**
@@ -36,7 +119,8 @@ class ListsCest {
   public function testListParagraphNews(AcceptanceTester $I) {
     $I->logInWithRole('contributor');
     $I->amOnPage('/node/add/stanford_news');
-    $I->fillField('Headline', 'Foo Bar News');
+    $title = $this->faker->words(3, TRUE);
+    $I->fillField('Headline', $title);
     $I->click('Save');
 
     $node = $this->getNodeWithList($I, [
@@ -49,7 +133,7 @@ class ListsCest {
     $I->canSee('Headliner');
     $I->canSee('Lorem Ipsum');
     $I->canSeeLink('Google', 'http://google.com');
-    $I->canSee('Foo Bar News');
+    $I->canSee($title);
   }
 
   /**
@@ -106,7 +190,6 @@ class ListsCest {
       'arguments' => $random_term->label(),
     ]);
 
-
     $I->amOnPage($node->toUrl()->toString());
     $I->cantSee($news->label());
   }
@@ -144,18 +227,166 @@ class ListsCest {
   }
 
   /**
-   * Event items should display in the list paragraph.
+   * No results message and hiding should work.
    *
-   * @group newtest
+   * @group D8CORE-4858
+   */
+  public function testEmptyResultsListEvents(AcceptanceTester $I) {
+    // Start with no events.
+    $nodes = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties(['type' => 'stanford_event']);
+    foreach ($nodes as $node) {
+      $node->delete();
+    }
+    $message = $this->faker->sentence;
+    $headline_text = $this->faker->words(3, TRUE);
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $I->createEntity([
+      'type' => 'stanford_lists',
+      'su_list_view' => [
+        'target_id' => 'stanford_events',
+        'display_id' => 'list_page',
+        'items_to_display' => 100,
+      ],
+      'su_list_headline' => $headline_text,
+      'su_list_description' => [
+        'format' => 'stanford_html',
+        'value' => '<p>Lorem Ipsum</p>',
+      ],
+      'su_list_button' => ['uri' => 'http://google.com', 'title' => 'Google'],
+    ], 'paragraph');
+    $row = $I->createEntity([
+      'type' => 'node_stanford_page_row',
+      'su_page_components' => [
+        'target_id' => $paragraph->id(),
+        'entity' => $paragraph,
+      ],
+    ], 'paragraph_row');
+
+    $node = $I->createEntity([
+      'type' => 'stanford_page',
+      'title' => $this->faker->text(30),
+      'su_page_components' => [
+        'target_id' => $row->id(),
+        'entity' => $row,
+      ],
+    ]);
+
+    $I->amOnPage($node->toUrl()->toString());
+    $I->canSee($node->label(), 'h1');
+    $I->canSee($headline_text);
+    $I->cantSee($message);
+
+
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $I->createEntity([
+      'type' => 'stanford_lists',
+      'su_list_view' => [
+        'target_id' => 'stanford_events',
+        'display_id' => 'list_page',
+        'items_to_display' => 100,
+      ],
+      'su_list_headline' => $headline_text,
+      'su_list_description' => [
+        'format' => 'stanford_html',
+        'value' => '<p>Lorem Ipsum</p>',
+      ],
+      'su_list_button' => ['uri' => 'http://google.com', 'title' => 'Google'],
+    ], 'paragraph');
+    $paragraph->setBehaviorSettings('list_paragraph', ['empty_message' => $message]);
+    $paragraph->save();
+    $row = $I->createEntity([
+      'type' => 'node_stanford_page_row',
+      'su_page_components' => [
+        'target_id' => $paragraph->id(),
+        'entity' => $paragraph,
+      ],
+    ], 'paragraph_row');
+
+    $node = $I->createEntity([
+      'type' => 'stanford_page',
+      'title' => $this->faker->text(30),
+      'su_page_components' => [
+        'target_id' => $row->id(),
+        'entity' => $row,
+      ],
+    ]);
+
+    $I->amOnPage('/');
+    $I->amOnPage($node->toUrl()->toString());
+    $I->canSee($headline_text);
+    $I->canSee($message);
+
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    $paragraph = $I->createEntity([
+      'type' => 'stanford_lists',
+      'su_list_view' => [
+        'target_id' => 'stanford_events',
+        'display_id' => 'list_page',
+        'items_to_display' => 100,
+      ],
+      'su_list_headline' => $headline_text,
+      'su_list_description' => [
+        'format' => 'stanford_html',
+        'value' => '<p>Lorem Ipsum</p>',
+      ],
+      'su_list_button' => ['uri' => 'http://google.com', 'title' => 'Google'],
+    ], 'paragraph');
+    $paragraph->setBehaviorSettings('list_paragraph', [
+      'empty_message' => $message,
+      'hide_empty' => TRUE,
+    ]);
+    $paragraph->save();
+    $row = $I->createEntity([
+      'type' => 'node_stanford_page_row',
+      'su_page_components' => [
+        'target_id' => $paragraph->id(),
+        'entity' => $paragraph,
+      ],
+    ], 'paragraph_row');
+
+    $node = $I->createEntity([
+      'type' => 'stanford_page',
+      'title' => $this->faker->text(30),
+      'su_page_components' => [
+        'target_id' => $row->id(),
+        'entity' => $row,
+      ],
+    ]);
+
+    $I->amOnPage('/');
+    $I->amOnPage($node->toUrl()->toString());
+    $I->cantSee($headline_text);
+    $I->cantSee($message);
+  }
+
+  /**
+   * Event items should display in the list paragraph.
    */
   public function testListParagraphEvents(AcceptanceTester $I) {
     $I->logInWithRole('contributor');
 
-    $type = $I->createEntity(['name' => $this->faker->words(3, TRUE), 'vid' => 'stanford_event_types'], 'taxonomy_term');
-    $audience = $I->createEntity(['name' => $this->faker->words(3, TRUE), 'vid' => 'event_audience'], 'taxonomy_term');
-    $group = $I->createEntity(['name' => $this->faker->words(3, TRUE), 'vid' => 'stanford_event_groups'], 'taxonomy_term');
-    $subject = $I->createEntity(['name' => $this->faker->words(3, TRUE), 'vid' => 'stanford_event_subject'], 'taxonomy_term');
-    $keyword = $I->createEntity(['name' => $this->faker->words(3, TRUE), 'vid' => 'stanford_event_keywords'], 'taxonomy_term');
+    $type = $I->createEntity([
+      'name' => $this->faker->words(3, TRUE),
+      'vid' => 'stanford_event_types',
+    ], 'taxonomy_term');
+    $audience = $I->createEntity([
+      'name' => $this->faker->words(3, TRUE),
+      'vid' => 'event_audience',
+    ], 'taxonomy_term');
+    $group = $I->createEntity([
+      'name' => $this->faker->words(3, TRUE),
+      'vid' => 'stanford_event_groups',
+    ], 'taxonomy_term');
+    $subject = $I->createEntity([
+      'name' => $this->faker->words(3, TRUE),
+      'vid' => 'stanford_event_subject',
+    ], 'taxonomy_term');
+    $keyword = $I->createEntity([
+      'name' => $this->faker->words(3, TRUE),
+      'vid' => 'stanford_event_keywords',
+    ], 'taxonomy_term');
 
     $event = $I->createEntity([
       'type' => 'stanford_event',
@@ -207,7 +438,7 @@ class ListsCest {
       'target_id' => 'stanford_events',
       'display_id' => 'list_page',
       'items_to_display' => 100,
-      'arguments' => "''/" . str_replace(' ', '-',$group->label()),
+      'arguments' => "''/" . str_replace(' ', '-', $group->label()),
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($event->label());
@@ -216,7 +447,7 @@ class ListsCest {
       'target_id' => 'stanford_events',
       'display_id' => 'list_page',
       'items_to_display' => 100,
-      'arguments' => "''/''/" .str_replace(' ', '-', $subject->label()),
+      'arguments' => "''/''/" . str_replace(' ', '-', $subject->label()),
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($event->label());
@@ -225,17 +456,20 @@ class ListsCest {
       'target_id' => 'stanford_events',
       'display_id' => 'list_page',
       'items_to_display' => 100,
-      'arguments' => "''/''/''/" . str_replace(' ', '-',$keyword->label()),
+      'arguments' => "''/''/''/" . str_replace(' ', '-', $keyword->label()),
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($event->label());
 
-    $type = $I->createEntity(['name' => $this->faker->words(3, TRUE), 'vid' => 'stanford_event_types'], 'taxonomy_term');
+    $type = $I->createEntity([
+      'name' => $this->faker->words(3, TRUE),
+      'vid' => 'stanford_event_types',
+    ], 'taxonomy_term');
     $node = $this->getNodeWithList($I, [
       'target_id' => 'stanford_events',
       'display_id' => 'list_page',
       'items_to_display' => 100,
-      'arguments' => str_replace(' ', '-',$type->label()),
+      'arguments' => str_replace(' ', '-', $type->label()),
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->cantSee($event->label());
@@ -535,7 +769,7 @@ class ListsCest {
       'title' => $this->faker->text(15),
       'su_basic_page_type' => $type_term->id(),
       'su_page_description' => $this->faker->text,
-      'layout_selection' => 'stanford_basic_page_full'
+      'layout_selection' => 'stanford_basic_page_full',
     ]);
     $I->amOnPage($layout_changed_page->toUrl('edit-form')->toString());
     $I->click('Save');
