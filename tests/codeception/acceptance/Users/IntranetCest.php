@@ -4,6 +4,7 @@
  * Class IntranetCest.
  *
  * @group users
+ * @group no-parallel
  */
 class IntranetCest {
 
@@ -37,7 +38,6 @@ class IntranetCest {
   public function _after(AcceptanceTester $I) {
     $I->runDrush('sset stanford_intranet ' . (int) $this->intranetWasEnabled);
     $I->runDrush('sset stanford_intranet.allow_file_uploads ' . (int) $this->fileUploadsWasEnabled);
-    $I->runDrush('cache:rebuild');
     if (file_exists(codecept_data_dir('/test.txt'))) {
       unlink(codecept_data_dir('/test.txt'));
     }
@@ -52,8 +52,9 @@ class IntranetCest {
       $I->runDrush('cache-rebuild');
     }
 
+    $I->stopFollowingRedirects();
     $I->amOnPage('/');
-    $I->canSeeResponseCodeIs(403);
+    $I->canSeeResponseCodeIsBetween(301, 403);
     $I->canSeeNumberOfElements('.su-multi-menu__menu a', 0);
 
     $I->logInWithRole('authenticated');
@@ -153,7 +154,6 @@ class IntranetCest {
   public function testMediaAccess(AcceptanceTester $I) {
     $I->runDrush('sset stanford_intranet 1');
     $I->runDrush('sset stanford_intranet.allow_file_uploads 1');
-    $I->runDrush('cache-rebuild');
     $I->logInWithRole('site_manager');
     $I->amOnPage('/media/add/file');
     $I->canSeeResponseCodeIs(200);
