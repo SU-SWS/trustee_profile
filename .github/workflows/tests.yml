@@ -108,3 +108,4 @@ jobs:
         with:
           name: functional-tests-results
           path: /var/www/html/artifacts
+
