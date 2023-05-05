@@ -125,6 +125,7 @@ class EntityReferenceCest {
       'su_entity_button' => [
         'uri' => $this->fieldValues['uri'],
         'title' => $this->fieldValues['title'],
+        'options' => [],
       ],
     ], 'paragraph');
     $row = $I->createEntity([
