@@ -5,7 +5,7 @@
  * trustee_profile.install
  */
 
-use Drupal\Core\Block;
+use Drupal\block\Entity\Block;
 
 /**
  * Add the main anchor block to the search page.
