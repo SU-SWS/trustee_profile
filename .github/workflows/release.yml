@@ -32,3 +32,4 @@ jobs:
           commit: ${{ github.sha }}
           generateReleaseNotes: true
           makeLatest: true
+
