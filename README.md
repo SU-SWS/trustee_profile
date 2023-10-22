@@ -23,24 +23,26 @@ Installation
 
 Install this installation profile like any other profile. [See Drupal Documentation](https://www.drupal.org/docs/7/install/using-an-installation-profile)
 
-Configuration
+Upstream updates
 ---
 
-Nothing special needed.
+Pull from [stanford_profile](https://github.com/SU-SWS/stanford_profile.git) by running the command `git pull https://github.com/SU-SWS/stanford_profile.git 11.x -X ours --no-edit`.
+
+There is possibly going to be some conflicts. Clear up those conflicts and commit the changes.
 
 Releases
 ---
 
 Steps to build a new release:
-- Checkout the latest commit from the `1.x` branch.
+- Checkout the latest commit from the most recent default branch.
 - Create a new branch for the release.
 - Commit any necessary changes to the release branch.
   -  These may include, but are not necessarily limited to:
-    - Update the version in any `info.yml` files, including in any submodules.
-    - Update the CHANGELOG to reflect the changes made in the new release.
+  - Update the version in any `info.yml` files, including in any submodules.
+  - Update the CHANGELOG to reflect the changes made in the new release.
 - Make a PR to merge your release branch into `main`
 - Give the PR a semver-compliant label, e.g., (`patch`, `minor`, `major`).  This may happen automatically via Github actions (if a labeler action is configured).
-- When the PR is merged to `main`, a new tag will be created automatically, bumping the version by the semver label.
+- When the PR is merged to the default branch, a new tag will be created automatically, bumping the version by the semver label.
 - The github action is built from: [semver-release-action](https://github.com/K-Phoen/semver-release-action), and further documentation is available there.
 
 
