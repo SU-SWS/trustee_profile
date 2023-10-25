@@ -1,5 +1,10 @@
 # Trustee Profile
 
+5.0.4
+-------------------------------------------------------------------------------
+- Invalidate cache tag when saving site contact details
+- Allow figure and figcaption in embeddables
+
 5.0.2
 --------------------------------------------------------------------------------
 - D8CORE-7051 Use display field copy instead of token fields
