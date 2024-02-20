@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// text links.
+a,
+a.su-link--external,
+a.su-link {
+  color: $su-color-archway;
+}
+
+// CTA and email link icon color
+a {
+  &.mailto svg{
+    fill: $su-color-archway;
+  }
+
+  &::after {
+    background-color: $su-color-archway !important;
+  }
+}

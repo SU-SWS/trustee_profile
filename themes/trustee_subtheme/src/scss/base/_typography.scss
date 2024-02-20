@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+h1,
+h2,
+h3,
+h4 {
+  color: $su-color-cardinal-red;
+}
+
+h2 {
+  @include responsive-spacing('margin-bottom', 5);
+}
+
+h5 {
+  color: $su-color-archway-dark;
+}
+
+.su-wysiwyg-text {
+
+  ul {
+    margin-left: 0.5em;
+  }
+
+  li {
+    margin-bottom: 0.2em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
