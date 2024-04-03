@@ -623,7 +623,7 @@ function trustee_profile_update_9104() {
 /**
  * Remove data for paragraph rows.
  */
-function stanford_profile_update_9105() {
+function trustee_profile_update_9105() {
   $tables = [
     'paragraph_row__su_page_components',
     'paragraph_row__su_pubs_components',
