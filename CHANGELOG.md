@@ -1,5 +1,9 @@
 # Trustee Profile
 
+5.1.2
+-------------------------------------------------------------------------------
+- Update downstream function name inherited from stanford_profile
+
 5.1.1
 -------------------------------------------------------------------------------
 - Disable page_cache_query_ignore for ACN upgrade on Acquia server
