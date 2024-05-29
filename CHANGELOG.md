@@ -1,5 +1,12 @@
 # Trustee Profile
 
+5.1.4
+-------------------------------------------------------------------------------
+- D8CORE-7413 Enabled search api processor to add spaces between html tags (#792)
+- D8CORE-7414: Different sorting option for Basic Page lists (#791)
+- Removed menu block patch
+- Remove banner behavior on page title banner
+
 5.1.3
 -------------------------------------------------------------------------------
 - Updated scheduler config
