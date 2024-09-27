@@ -7,7 +7,7 @@ use Faker\Factory;
  */
 class EntityReferenceCest {
 
-   /**
+  /**
    * Faker service.
    *
    * @var \Faker\Generator
