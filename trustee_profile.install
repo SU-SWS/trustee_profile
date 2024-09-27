@@ -5,10 +5,6 @@
  * trustee_profile.install
  */
 
-use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\node\NodeInterface;
-use Drupal\field\Entity\FieldConfig;
-
 /**
  * Create the new layout paragraph type.
  */
