@@ -4,7 +4,7 @@
     "type": "drupal-custom-profile",
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable": false,
     "repositories": [
         {
             "type": "composer",
