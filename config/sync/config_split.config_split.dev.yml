@@ -21,7 +21,6 @@ module:
   purge_tokens: 0
   shield: 0
   update: 0
-  stage_file_proxy: 0
 theme: {  }
 complete_list: {  }
 partial_list: {  }
