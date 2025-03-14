@@ -1,6 +1,6 @@
 name: 'Trustee Profile'
 description: 'Jumpstart Website Profile for Board of Trustees Intranet sites'
-version: 5.2.0
+version: 5.3.0
 type: profile
 project: Stanford
 core_version_requirement: ^10 || ^11
