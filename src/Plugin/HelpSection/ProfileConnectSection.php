@@ -2,18 +2,18 @@
 
 namespace Drupal\trustee_profile\Plugin\HelpSection;
 
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\help\Attribute\HelpSection;
 use Drupal\help\Plugin\HelpSection\HelpSectionPluginBase;
 
 /**
  * Provides the module topics list section for the help page.
- *
- * @HelpSection(
- *   id = "profile_connect",
- *   title = @Translation("Other resources at Stanford"),
- *   description =  @Translation(""),
- *   weight = -20
- * )
  */
+#[HelpSection(
+  id: 'profile_connect',
+  title: new TranslatableMarkup('Other resources at Stanford'),
+  weight: -99
+)]
 class ProfileConnectSection extends HelpSectionPluginBase {
 
   use ProfileHelpTrait;

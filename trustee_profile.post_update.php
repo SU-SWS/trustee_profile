@@ -5,97 +5,46 @@
  * trustee_profile.install
  */
 
-use Drupal\block\Entity\Block;
-use Drupal\Core\Serialization\Yaml;
-
 /**
- * Add the main anchor block to the search page.
+ * Implements hook_removed_post_updates().
  */
-function trustee_profile_post_update_8202() {
-  $theme_name = \Drupal::config('system.theme')->get('default');
-  if (!in_array($theme_name, [
-    'stanford_basic',
-    'minimally_branded_subtheme',
-  ])) {
-    Block::create([
-      'id' => "{$theme_name}_main_anchor",
-      'theme' => $theme_name,
-      'region' => 'content',
-      'weight' => -10,
-      'plugin' => 'jumpstart_ui_skipnav_main_anchor',
-      'settings' => [
-        'id' => 'jumpstart_ui_skipnav_main_anchor',
-        'label' => 'Main content anchor target',
-        'label_display' => 0,
-      ],
-      'visibility' => [
-        'request_path' => [
-          'id' => 'request_path',
-          'negate' => FALSE,
-          'pages' => '/search',
-        ],
-      ],
-    ])->save();
-  }
+function trustee_profile_removed_post_updates() {
+  return [
+    'trustee_profile_post_update_8202' => '6.0.0',
+    'trustee_profile_post_update_update_field_defs' => '6.0.0',
+    'trustee_profile_post_update_samlauth' => '6.0.0',
+    'trustee_profile_post_update_site_orgs' => '6.0.0',
+  ];
 }
 
 /**
- * Update field storage definitions.
+ * Create new rabbit hole message block for subthemes.
  */
-function trustee_profile_post_update_update_field_defs() {
-  $um = \Drupal::entityDefinitionUpdateManager();
-  foreach ($um->getChangeList() as $entity_type => $changes) {
-    if (isset($changes['field_storage_definitions'])) {
-      foreach ($changes['field_storage_definitions'] as $field_name => $status) {
-        $um->updateFieldStorageDefinition($um->getFieldStorageDefinition($field_name, $entity_type));
-      }
-    }
-  }
-}
-
-/**
- * Enable samlauth.
- */
-function trustee_profile_post_update_samlauth() {
-  if (\Drupal::moduleHandler()->moduleExists('stanford_samlauth')) {
+function trustee_profile_post_update_rabbit_hole_block() {
+  $theme = \Drupal::config('system.theme')->get('default');
+  if (in_array($theme, ['stanford_basic', 'minimally_branded_subtheme'])) {
     return;
   }
-  $ignore_settings = \Drupal::configFactory()
-    ->getEditable('config_ignore.settings');
-  $ignored = $ignore_settings->get('ignored_config_entities');
-  $ignored[] = 'samlauth.authentication:map_users_roles';
-  $ignore_settings->set('ignored_config_entities', $ignored)->save();
-  \Drupal::service('module_installer')->install(['stanford_samlauth']);
-}
-
-/**
- * Create site org vocab and terms.
- */
-function trustee_profile_post_update_site_orgs() {
-  $vocab_storage = \Drupal::entityTypeManager()
-    ->getStorage('taxonomy_vocabulary');
-  if (!$vocab_storage->load('site_owner_orgs')) {
-    $vocab_storage->create([
-      'uuid' => '0611ae1d-2ab4-46c3-9cc8-2259355f0852',
-      'vid' => 'site_owner_orgs',
-      'name' => 'Site Owner Orgs',
-    ])->save();
-
-    $profile_name = \Drupal::config('core.extension')->get('profile');
-    $profile_path = \Drupal::service('extension.list.profile')
-      ->getPath($profile_name);
-
-    /** @var \Drupal\default_content\Normalizer\ContentEntityNormalizer $importer */
-    $normalizer = \Drupal::service('default_content.content_entity_normalizer');
-
-    $files = \Drupal::service('default_content.content_file_storage')
-      ->scan("$profile_path/content/taxonomy_term");
-
-    foreach ($files as $file) {
-      $term = Yaml::decode(file_get_contents($file->uri));
-      if ($term['_meta']['bundle'] == 'site_owner_orgs') {
-        $normalizer->denormalize($term)->save();
-      }
-    }
-  }
+  \Drupal::entityTypeManager()->getStorage('block')->create([
+    'id' => "{$theme}_rabbit_hole_message",
+    'theme' => $theme,
+    'region' => 'content',
+    'weight' => -10,
+    'plugin' => 'rabbit_hole_message',
+    'settings' => [
+      'id' => 'rabbit_hole_message',
+      'label' => 'Rabbit Hole Message',
+      'label_display' => 0,
+      'provider' => 'stanford_profile_helper',
+      'context_mapping' => ['node' => '@node.node_route_context:node'],
+    ],
+    'visibility' => [
+      'user_role' => [
+        'id' => 'user_role',
+        'negate' => TRUE,
+        'context_mapping' => ['user' => '@user.current_user_context:current_user'],
+        'roles' => ['anonymous' => 'anonymous'],
+      ],
+    ],
+  ])->save();
 }

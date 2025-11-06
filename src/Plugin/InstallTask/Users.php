@@ -4,16 +4,14 @@ namespace Drupal\trustee_profile\Plugin\InstallTask;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\trustee_profile\Attribute\InstallTask;
 use Drupal\trustee_profile\InstallTaskBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Install users task.
- *
- * @InstallTask(
- *   id="trustee_profile_users"
- * )
  */
+#[InstallTask(id: 'trustee_profile_users')]
 class Users extends InstallTaskBase implements ContainerFactoryPluginInterface {
 
   /**

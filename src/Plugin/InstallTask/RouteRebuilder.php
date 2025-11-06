@@ -4,16 +4,14 @@ namespace Drupal\trustee_profile\Plugin\InstallTask;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteBuilderInterface;
+use Drupal\trustee_profile\Attribute\InstallTask;
 use Drupal\trustee_profile\InstallTaskBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Rebuilds the routes.
- *
- * @InstallTask(
- *   id="trustee_profile_route_rebuilder"
- * )
  */
+#[InstallTask(id: 'trustee_profile_route_rebuilder')]
 class RouteRebuilder extends InstallTaskBase implements ContainerFactoryPluginInterface {
 
   /**

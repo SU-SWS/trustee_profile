@@ -1,10 +1,13 @@
 <?php
 
+use Codeception\Attribute as CodeceptionAttribute;
 use Faker\Factory;
 
 /**
  * Class EntityReferenceCest.
  */
+#[CodeceptionAttribute\Group('paragraphs')]
+#[CodeceptionAttribute\Group('teaser')]
 class EntityReferenceCest {
 
   /**
@@ -113,7 +116,7 @@ class EntityReferenceCest {
     $this->fieldValues = [
       'headliner' => $this->faker->words(3, TRUE),
       'description' => $this->faker->words(3, TRUE),
-      'uri' => $this->faker->url,
+      'uri' => $this->faker->url(),
       'title' => $this->faker->words(3, TRUE),
     ];
 
