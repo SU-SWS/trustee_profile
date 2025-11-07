@@ -19,8 +19,6 @@ use Drupal\trustee_profile\Plugin\InstallTask\SiteSettings;
 
 /**
  * Class SiteSettingsTest.
- *
- * @coversDefaultClass \Drupal\trustee_profile\Plugin\InstallTask\SiteSettings
  */
 class SiteSettingsTest extends KernelTestBase {
 

@@ -23,7 +23,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 /**
  * Class EventSubscriber.
  *
- * @package Drupal\stanford_profile\EventSubscriber
+ * @package Drupal\trustee_profile\EventSubscriber
  */
 class StanfordProfileEventSubscriber implements EventSubscriberInterface {
 
@@ -70,7 +70,7 @@ class StanfordProfileEventSubscriber implements EventSubscriberInterface {
    *   Messenger service.
    */
   public function __construct(protected FileSystemInterface $fileSystem, protected ClientInterface $client, LoggerChannelFactoryInterface $logger_factory, protected MessengerInterface $messenger) {
-    $this->logger = $logger_factory->get('stanford_profile');
+    $this->logger = $logger_factory->get('trustee_profile');
   }
 
   /**

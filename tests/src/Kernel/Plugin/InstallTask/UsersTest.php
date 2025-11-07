@@ -9,8 +9,6 @@ use Drupal\user\Entity\User;
 
 /**
  * Class UsersTest.
- *
- * @coversDefaultClass \Drupal\trustee_profile\Plugin\InstallTask\Users
  */
 class UsersTest extends KernelTestBase {
 

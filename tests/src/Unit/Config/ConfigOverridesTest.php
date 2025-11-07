@@ -13,9 +13,6 @@ use Drupal\Tests\UnitTestCase;
 
 /**
  * Class ConfigOverridesTest
- *
- * @group trustee_profile
- * @coversDefaultClass \Drupal\trustee_profile\Config\ConfigOverrides
  */
 class ConfigOverridesTest extends UnitTestCase {
 
