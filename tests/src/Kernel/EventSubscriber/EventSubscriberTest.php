@@ -12,8 +12,7 @@ use Drupal\file\Entity\File;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\media\Entity\Media;
 use Drupal\media\Entity\MediaType;
-use Drupal\trustee_profile\EventSubscriber\EventSubscriber as StanfordEventSubscriber;
-use Drupal\user\Entity\Role;
+use Drupal\trustee_profile\EventSubscriber\StanfordProfileEventSubscriber;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,9 +21,6 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Class EventSubscriberTest.
- *
- * @group trustee_profile
- * @coversDefaultClass \Drupal\trustee_profile\EventSubscriber\EventSubscriber
  */
 class EventSubscriberTest extends KernelTestBase {
 
@@ -51,7 +47,7 @@ class EventSubscriberTest extends KernelTestBase {
   /**
    * Event subscriber object.
    *
-   * @var \Drupal\trustee_profile\EventSubscriber\EventSubscriber
+   * @var \Drupal\trustee_profile\EventSubscriber\StanfordProfileEventSubscriber
    */
   protected $eventSubscriber;
 

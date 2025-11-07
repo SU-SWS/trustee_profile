@@ -4,15 +4,11 @@ namespace Drupal\Tests\trustee_profile\Unit\Plugin\HelpSection;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Utility\LinkGeneratorInterface;
-use Drupal\trustee_profile\Plugin\HelpSection\ProfileConnectSection;
 use Drupal\trustee_profile\Plugin\HelpSection\ProfileResourceSection;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * Class ProfileConnectSectionTest
- *
- * @group trustee_profile
- * @coversDefaultClass \Drupal\trustee_profile\Plugin\HelpSection\ProfileResourceSection
  */
 class ProfileResourceSectionTest extends UnitTestCase {
 

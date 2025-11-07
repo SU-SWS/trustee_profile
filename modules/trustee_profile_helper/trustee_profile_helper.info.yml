@@ -1,5 +1,5 @@
 name: 'Board of Trustee Profile Helper'
 type: module
 description: 'Add on module and functionality for Board of Trustees.'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^11
 package: 'trustee'
