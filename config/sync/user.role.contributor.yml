@@ -36,7 +36,6 @@ dependencies:
     - pathauto
     - scheduler
     - stanford_policy
-    - stanford_profile
     - stanford_publication
     - system
     - toolbar
