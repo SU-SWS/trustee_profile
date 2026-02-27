@@ -1,7 +1,6 @@
 # [Trustee Profile](https://github.com/SU-SWS/trustee_profile)
-##### 1.x
+##### 6.x
 [![CircleCI](https://circleci.com/gh/SU-SWS/trustee_profile.svg?style=svg)](https://circleci.com/gh/SU-SWS/trustee_profile)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9e16872314a79186f4fe/test_coverage)](https://codeclimate.com/github/SU-SWS/trustee_profile/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9e16872314a79186f4fe/maintainability)](https://codeclimate.com/github/SU-SWS/trustee_profile/maintainability)
 
 Maintainers: [Mike Decker](https://github.com/pookmish), [sherakama](https://github.com/sherakama)
@@ -26,7 +25,8 @@ Install this installation profile like any other profile. [See Drupal Documentat
 Upstream updates
 ---
 
-Pull from [stanford_profile](https://github.com/SU-SWS/stanford_profile.git) by running the command `git pull https://github.com/SU-SWS/stanford_profile.git 11.x -X ours --no-edit`.
+Pull from [stanford_profile](https://github.com/SU-SWS/stanford_profile.git) by running the command `git pull https://github.com/SU-SWS/stanford_profile.git 12.x -X ours --no-edit`.
+- If you do not have default pull option configured you will want to add the `--no-rebase` flag to do a merge commit.
 
 There is possibly going to be some conflicts. Clear up those conflicts and commit the changes.
 
