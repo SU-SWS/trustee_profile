@@ -77,7 +77,7 @@
 - D8CORE-8195: Added external source field and functionality to policy content type (#971)
 - Move function to profile helper
 - Upgrade everything to Drupal 11 (#968)
-- D8CORE-7586 D8CORE-7583: Expand algolia to allow for federated search feature (#966)
+- D8CORE-7586 Expand algolia to allow for federated search feature (#966)
 - Updated filtered opportunities GQL view settings
 - Fixed typo in site org taxonomy term
 - Updated configs from content_lock module upgrade
@@ -96,19 +96,19 @@
 - D8CORE-8014 Fix hover state on mobile menu hamburger
 - D8CORE-8065 Move opportunity node page "Main content" anchor above page title
 - Adjust opportunity filters to use radio buttons (#950)
-- D8CORE-8036: RSS Feed For News (#936)
+- RSS Feed For News (#936)
 - Added heading level selection for stat card paragraph (#949)
-- D8CORE-8045: Adding spacing to header bottom when there is no navigation menu. (#943)
+- Adding spacing to header bottom when there is no navigation menu. (#943)
 - Add fontawesome icon template to hide icon from screen readers
-- D8CORE-7987: Copy the utility links and buttons for the mobile display (#935)
-- D8CORE-8133: Changed sort for the opportunities view (#945)
+- Copy the utility links and buttons for the mobile display (#935)
+- Changed sort for the opportunities view (#945)
 - Update stat card color choices
 - Updated editorially settings
 - Require headline in stat card (#940)
 - Revert "D8CORE-8134: Use "And" logic for opportunities filters"
 - D8CORE-8134: Use "And" logic for opportunities filters
 - Added stat card icon
-- D8CORE-8000: Add validation for numeric "Items to display" on list paragraph (#937)
+- Add validation for numeric "Items to display" on list paragraph (#937)
 - D8CORE-7843 D8CORE-8086 Add stat card and section background color options (#932)
 - D8CORE-8042 - External source field for person with page redirect (#933)
 - Update admin toolbar config
@@ -124,13 +124,13 @@
 - Add mysql57 module to support Acquia and D11 (#925)
 - D8CORE-8066 Use entity view reference for CAP org code reference (#930)
 - D8CORE-8031 Force displaying both regions on opportunity  layout
-- D8CORE-8029: made the contact email a link (#921)
+- made the contact email a link (#921)
 - Add fallback sorting to graphql views
 - Fixed course card grid to display as a grid, instead of list
 - Exclude external link icon from news teasers due to template implementation
 - D8CORE-8024 Fix order of decoupled menu items (#919)
-- D8CORE-8025 D8CORE-8027: fixed tabing order and spacing on the header and utility nav (#920)
-- D8CORE-8020: Opportunities header items changes for alignment when no icon (#918)
+- D8CORE-8025 fixed tabing order and spacing on the header and utility nav (#920)
+- Opportunities header items changes for alignment when no icon (#918)
 - Expose entity ids in graphql to allow for view filtering'
 - Fixed attribute wrapping site utility navigation
 - Updated graphql settings for opportunities view
@@ -189,20 +189,20 @@
 - D8CORE-7806: Gave site owners permissions to assign Reviewer role. (#868)
 - D8CORE 7753 refactor accordion paragraph to use button and div elements (#863)
 - Fix typo in lockup config page settings. (#862)
-- D8CORE-7705: Self-Service Enhanced Search (#861)
-- D8CORE-7780: Content Management pages for person, event and news (#858)
-- D8CORE-7622: Site Reviewer Role (#855)
-- D8CORE-7339: added net to the local footer social link validation (#859)
-- D8CORE-7644: updated user creation mail (#856)
-- D8CORE-7220: h1 on Homepage (#847)
-- D8Core-7339: added help text and additional icons to social links in footer. (#846)
+- Self-Service Enhanced Search (#861)
+- Content Management pages for person, event and news (#858)
+- Site Reviewer Role (#855)
+- added net to the local footer social link validation (#859)
+- updated user creation mail (#856)
+- h1 on Homepage (#847)
+- added help text and additional icons to social links in footer. (#846)
 - Revert "Add and configure trash module for soft deleteing content (#835)" (#851)
 - Update tests to work correctly with trash module (#850)
-- D8CORE-7531: removed max-width on intro text and drop cap text (#843)
-- D8CORE-7703: fixed bad link, updated text (#844)
-- D8CORE-7532: removed wysiwyg p line length (#842)
+- removed max-width on intro text and drop cap text (#843)
+- fixed bad link, updated text (#844)
+- removed wysiwyg p line length (#842)
 - Add and configure trash module for soft deleteing content (#835)
-- D8CORE-7678: removed the medium and small quote (#840)
+- removed the medium and small quote (#840)
 - Updated editora11y module config (#841)
 - Fix tests with profile helper module dev (#839)
 - Remove obsolete module block_content_permissions (#838)
@@ -210,13 +210,13 @@
 - update linkit
 - Removed patch and set to Drupal 10.4
 - Drupal 11.4 update
-- D8CORE-7533: Change to the Quote style in the wysiwyg
+- Change to the Quote style in the wysiwyg
 - Fixup citation entity config export
 - Updated environment indicator settings after update
 - Update linkit module (#834)
-- D8CORE-7664: add gutters to accordions on full width
-- D8CORE-7668: Adjust skip secondary nav anchor link
-- D8CORE-7670: allow all language options in ckeditor
+- add gutters to accordions on full width
+- Adjust skip secondary nav anchor link
+- allow all language options in ckeditor
 - Update ultimate cron config after module update (#832)
 - Updated config from db update
 - Fix stanford basic yarn install
@@ -231,17 +231,17 @@
 - D8CORE-5828 If home page starts with a wysiwyg, add some space at the top
 - Added aria label to masthead section
 - D8CORE-6821 Adjust skip to main content location
-- D8CORE-7454: Move back-to-top inside the <main> element
+- Move back-to-top inside the <main> element
 - D8CORE-7434 D8CORE-7435 D8CORE-7436 | Opportunity full content layout and configure card and list display (#813)
 - D8CORE-7578 Adjust person display for lists and improve resolution (#828)
-- D8CORE-7558: added the global footer to minimal theme in dark with no logo (#820)
+- added the global footer to minimal theme in dark with no logo (#820)
 - Added FAQ Accordion List paragraph type based on CAW (#827)
 - Added modal colorbox image display choices in the wysiwyg (#826)
 - Update layout builder modal module
 - Fix acceptance tests after contrib updates (#824)
 - Added graphql view for search results
 - Remove edit links in views (#821)
-- D8CORE-7564: removed decanter link and replaced with identity guide (#822)
+- removed decanter link and replaced with identity guide (#822)
 - D8CORE-7517 | update event subtitle heading (#816)
 - Removed unused page_cache_query_ignore module
 - D8Core-7515: adding a few additional options (#819)
@@ -251,7 +251,7 @@
 -------------------------------------------------------------------------------
 - Enabled internal link force relative option
 - D8CORE-7424 Added various HTML attributes to the WSYIWYG allowed list (#799)
-- D8CORE-5741: Opportunities Content type with small amount of styles (#801)
+- Opportunities Content type with small amount of styles (#801)
 - Updated decoupled menu and algolia search components
 - D8CORE-7455 Algolia Search: Decode html entities before stripping the html
 - D8CORE-7422 Write test for basic page list paragraph display sorts (#798)
@@ -263,7 +263,7 @@
 - Updated permission for config pages and decoupled user role
 - Enable basic auth module and remove permissions for graphql
 - D8CORE-7413 Enabled search api processor to add spaces between html tags (#792)
-- D8CORE-7414: Different sorting option for Basic Page lists (#791)
+- Different sorting option for Basic Page lists (#791)
 
 5.1.4
 -------------------------------------------------------------------------------
@@ -281,7 +281,7 @@
 - Enabled image styles and blocks to graphql endpoint
 - D8CORE-7362 Add necessary permission for site embedder role (#786)
 - Fixed publication url rabbit hole
-- D8CORE-6981: Fix lockup on very small screen size (#785)
+- Fix lockup on very small screen size (#785)
 - Added noscript on algolia search results page
 - D8CORE-7360 Adjust Person  node detail page heading structure for "Links" field
 - uninstall page cache query ignore
@@ -334,7 +334,7 @@
 - Strip more html from algolia indexed items
 - Fixed absolute urls for algolia results
 - D8CORE-7074 Implement Search API Algolia (#743)
-- D8CORE-6726: Overrode the colorbox formatter template to remove aria-label (#746)
+- Overrode the colorbox formatter template to remove aria-label (#746)
 - Update alert styles (#744)
 - Added cron job config
 - D8CORE-2761: reduced padding on filterby menu (#728)
@@ -365,7 +365,7 @@
 --------------------------------------------------------------------------------
 - Fix site setting redirect logic
 - Use h2 heading for global message
-- D8CORE-6976: updated to newest decanter (#730)
+- updated to newest decanter (#730)
 - Update config ignore settings for latest module (#729)
 - Update local footer config userguide links (#727)
 - Added and configured autoprefixer for css compiler
@@ -373,14 +373,14 @@
 - Fixed related policies to avoid self referencing
 - SDSS-1007: Add support for global footer variant. (#724)
 - Added su-masthead-inner class to masthead <section>. (#725)
-- D8CORE-6895: updates for new Decanter and updating webpack (#710)
+- updates for new Decanter and updating webpack (#710)
 - D8CORE-6951  D10 Clean up admin toolbar (#723)
 - Updated event subscriber
 - D8CORE-6952: changed to list style none (#719)
 - D8CORE-6953: Additional edits to the editing buttons (#722)
 - Display field copy released a D10 version
 - Lifecycle management contact fields
-- D8CORE-6953: fixes to local task tabs (#720)
+- fixes to local task tabs (#720)
 - D8CORE-6977 Switch to use CSHS instead of simple heiracry select (#721)
 - D8CORE-6984 include policy content in sitemap
 - Updated editiorially configs

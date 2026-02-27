@@ -171,7 +171,8 @@ printable_entities_bundles:
     stanford_wysiwyg: false
 open_target_blank: false
 css_include: profiles/custom/trustee_profile/themes/stanford_basic/dist/css/print.css
-extract_links: ''
+extract_links: extract
+link_canonical: false
 save_pdf: false
 pdf_tool: ''
 paper_size: A4
