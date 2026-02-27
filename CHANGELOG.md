@@ -1,5 +1,60 @@
 # Trustee Profile
 
+6.1.0
+-------------------------------------------------------------------------------
+06009f28 Adjust printable.settings.
+ecfe7d8c Removed stanford_profile dependencies from user role configs.
+c4802f38 Removed non-existent permission
+6cc5ca4b Check for decoupled menu item access for user
+2116aea0 D8CORE-8660: Use div to wrap h3 for next media list (#1075)
+307a1090 D8CORE-8659: More A/V name fixes (#1074)
+52a8de1c Updated GQL views for people references
+5b2cf98d Fixed AV display, hide subtitles and remove empty rows in media list
+6fed7e4f Change media tab order for AV field
+4609333f D8CORE-8541: Configure layout widget, Changed subtitle & transcript fields, added tests (#1070)
+690f83c6 D8CORE-8639: updated permissions for Audio/Visual content type (#1072)
+8935c137 D8CORE-8633: Updated clips duration to match the duration on the node (#1073)
+353fc559 D8Core-8581: updated labels and help text (#1071)
+6dffe6fa fixed composer.json
+989406f9 D8Core-8558: Ignore PDFs so we don't trigger WAF (#1068)
+a2845d38 D8CORE-8627: Media changed image style ratio (#1069)
+47e8765c D8CORE-8307: Allow anchor link navigation block (#1043)
+87bdc2f8 Configs for trash module
+88e46e84 D8CORE-8625: Media adding the labels to season and episode (#1064)
+d34dd7a3 D8CORE-8627: changed media image size to a 2:3 ratio (#1067)
+83314336 Update colorbox depedency (#1065)
+481f01bc D8CORE-8621: Add permissions for person_filters in site_manager role (#1063)
+e853c1e0 D8CORE-8535: Removed short title from the Person Node (#1062)
+d15c73ab Index more media fields for algolia
+e2d52031 D8CORE-8553: Media list: changed padding bottom to 3 (#1057)
+706d2f0c D8Core-8162: Fix default filter on manage events view (#1060)
+9ae1d61a D8Core-8131: Provide help text on stat card fields (#1059)
+2e77a713 D8Core-8034: Fix Opp Type Widget (#1058)
+d925db76 D8CORE-6635: only one event type displayed on cards, teasers, h3 card (#1054)
+c5344ac7 D8CORE-8553: Added a media category select field to create icon badge (#1050)
+f905060f Updated DS config
+6fa62777 Fix problem with Courses Mgmt view (#1037)
+e1888e22 D8CORE-8545: Added class needed for layout spacing (#1049)
+c4ef3cd4 D8CORE-8551: Updating styling for secondary navigation (#1046)
+b3c1f6fd D8CORE-8488 D8CORE-8489 | Update spotlight title to use h1 and filter tags to list (#1042)
+f9edec0d Added localist id field for lookup on the external system
+fd7ad269 D8CORE-8509: Updated help text on news dek field (#1041)
+883e596e D8CORE-8507: Increase number of admin toolbar entity bundles available
+be6808b5 D8Core-8530: Add course_filters to site manager role permissions (#1038)
+24f3f7d4 Re-export config
+d0e68fe2 D8CORE-7988: Allow unpublished term selections in fields (#1036)
+867676e4 Added embeddable video styles for ckeditor
+b0e37928 Add permissions to choose layout for contributor and site editor roles (#1032)
+a78af59a Adjusted spotlight image styles for better focal point
+a44a6dac D8CORE-8515: added class to the related publications view (#1033)
+0d9c3b93 Updated imagecache_external module config
+e58f9ba2 D8CORE-8514: Show leading 0 for event lists
+8dbcb6fb D8CORE-8514: Adjusted event teaser display fields
+01ee64e4 fixup
+5a426fde Added body field to indexed data for page and news
+6e8f345e Update views from BEF update
+d072c56b Tidy Up News Edit Form (#1030)
+
 6.0.0
 -------------------------------------------------------------------------------
 - D8CORE-5180: Remove alt text for people image cards
