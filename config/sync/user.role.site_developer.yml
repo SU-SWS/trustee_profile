@@ -348,6 +348,7 @@ permissions:
   - 'rabbit hole administer taxonomy_term'
   - 'rabbit hole bypass node'
   - 'rabbit hole bypass taxonomy_term'
+  - 'rebuild node access permissions'
   - 'reorder book pages'
   - 'revert all revisions'
   - 'revert stanford_course revisions'
