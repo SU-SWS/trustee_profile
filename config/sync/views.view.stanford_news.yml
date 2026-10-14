@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.stanford_card
     - core.entity_view_mode.node.stanford_h3_card
+    - core.entity_view_mode.node.teaser
     - field.storage.node.su_news_byline
     - field.storage.node.su_news_dek
     - field.storage.node.su_news_featured_media
@@ -23,7 +24,6 @@ dependencies:
     - stanford_fields
     - stanford_media
     - taxonomy
-    - ui_patterns_views
     - user
     - views_infinite_scroll
     - views_taxonomy_term_name_depth
@@ -568,7 +568,7 @@ display:
           row_class: ''
           default_row_class: true
       row:
-        type: ui_patterns
+        type: 'entity:node'
         options:
           default_field_elements: false
           inline:
@@ -788,63 +788,10 @@ display:
           wrapper_class: ''
           class: su-list-unstyled
       row:
-        type: ui_patterns
+        type: 'entity:node'
         options:
-          default_field_elements: 0
-          inline:
-            su_news_publishing_date: 0
-            su_news_featured_media: 0
-            title: 0
-            su_news_dek: 0
-            su_news_topics: 0
-            su_news_source: 0
-            view_node: 0
-            edit_node: 0
-          separator: ''
-          hide_empty: 0
-          pattern: news-list
-          pattern_mapping:
-            'views_row:view_node':
-              destination: news_url
-              weight: 0
-              plugin: views_row
-              source: view_node
-            'views_row:su_news_publishing_date':
-              destination: news_list_publishing_date
-              weight: 1
-              plugin: views_row
-              source: su_news_publishing_date
-            'views_row:su_news_source':
-              destination: news_source
-              weight: 2
-              plugin: views_row
-              source: su_news_source
-            'views_row:su_news_featured_media':
-              destination: news_list_image
-              weight: 3
-              plugin: views_row
-              source: su_news_featured_media
-            'views_row:su_news_dek':
-              destination: news_list_dek
-              weight: 4
-              plugin: views_row
-              source: su_news_dek
-            'views_row:title':
-              destination: news_list_headline
-              weight: 5
-              plugin: views_row
-              source: title
-            'views_row:su_news_topics':
-              destination: news_list_topics
-              weight: 6
-              plugin: views_row
-              source: su_news_topics
-            'views_row:edit_node':
-              destination: news_list_footer
-              weight: 7
-              plugin: views_row
-              source: edit_node
-          pattern_variant: h3_header
+          relationship: none
+          view_mode: teaser
       block_category: 'News Lists (Views)'
       block_description: ''
       css_class: ''
@@ -4218,7 +4165,7 @@ display:
           wrapper_class: ''
           class: su-list-unstyled
       row:
-        type: ui_patterns
+        type: 'entity:node'
         options:
           default_field_elements: false
           inline:

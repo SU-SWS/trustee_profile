@@ -150,6 +150,10 @@ processor_settings:
   role_access:
     weights:
       preprocess_query: -30
+  search_api_exclude_entity_processor:
+    fields:
+      node:
+        - su_search_exclusion
   stemmer:
     weights:
       preprocess_index: 0

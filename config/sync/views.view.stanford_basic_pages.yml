@@ -10,10 +10,12 @@ dependencies:
     - node.type.stanford_page
   module:
     - graphql_compose_views
+    - jumpstart_ui
     - node
     - paragraphs
     - stanford_fields
     - stanford_media
+    - ui_patterns
     - ui_patterns_views
     - user
     - views_taxonomy_term_name_depth

@@ -9,6 +9,8 @@ use Drupal\trustee_profile\Plugin\InstallTask\RouteRebuilder;
 /**
  * Class RouteRebuilderTest.
  */
+#[Group('trustee_profile')]
+#[RunTestsInSeparateProcesses]
 class RouteRebuilderTest extends KernelTestBase {
 
   /**
@@ -23,7 +25,7 @@ class RouteRebuilderTest extends KernelTestBase {
   /**
    * {@inheritDoc}
    */
-  public function setup(): void {
+  protected function setUp(): void {
     parent::setUp();
     $this->setInstallProfile('trustee_profile');
     $this->installEntitySchema('user');

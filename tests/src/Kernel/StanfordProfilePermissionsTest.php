@@ -10,6 +10,8 @@ use Drupal\trustee_profile\StanfordProfilePermissions;
 /**
  * Class StanfordProfilePermissionsTest.
  */
+#[Group('trustee_profile')]
+#[RunTestsInSeparateProcesses]
 class StanfordProfilePermissionsTest extends KernelTestBase {
 
   /**
@@ -29,7 +31,7 @@ class StanfordProfilePermissionsTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setup(): void {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->installEntitySchema('user');

@@ -20,6 +20,8 @@ use Drupal\trustee_profile\Plugin\InstallTask\SiteSettings;
 /**
  * Class SiteSettingsTest.
  */
+#[Group('trustee_profile')]
+#[RunTestsInSeparateProcesses]
 class SiteSettingsTest extends KernelTestBase {
 
   /**
@@ -46,7 +48,7 @@ class SiteSettingsTest extends KernelTestBase {
   /**
    * {@inheritDoc}
    */
-  public function setup(): void {
+  protected function setUp(): void {
     parent::setUp();
     $this->setInstallProfile('trustee_profile');
 
@@ -58,7 +60,6 @@ class SiteSettingsTest extends KernelTestBase {
     $this->installEntitySchema('config_pages');
     $this->installEntitySchema('node');
     $this->installSchema('externalauth', 'authmap');
-    $this->installSchema('system', ['sequences']);
     $this->installConfig('system');
 
     Role::create(['label' => 'Owner', 'id' => "site_manager"])->save();
@@ -254,6 +255,30 @@ class SiteSettingsTest extends KernelTestBase {
     $this->assertCount(2, $users);
     $this->assertEquals('https://foo bar.sites.stanford.edu', \Drupal::state()
       ->get('xmlsitemap_base_url'));
+
+    // Site owners are mapped to the provider samlauth uses to find accounts.
+    $authmap = \Drupal::service('externalauth.authmap');
+    foreach ($users as $user) {
+      $this->assertEquals($user->id(), $authmap->getUid($user->getAccountName(), 'samlauth'));
+    }
+  }
+
+  /**
+   * When the API returns no results, no changes will be made.
+   */
+  public function testEmptyApiResult() {
+    $resource = fopen('php://memory', 'r+');
+    fwrite($resource, json_encode(['result' => []]));
+    rewind($resource);
+    $this->guzzleResponse = new Stream($resource);
+
+    $this->runInstallTask();
+
+    drupal_flush_all_caches();
+    $this->assertEmpty(\Drupal::config('system.site')->get('name'));
+    $this->assertEmpty(\Drupal::entityTypeManager()
+      ->getStorage('user')
+      ->loadByProperties(['name' => 'barfoo']));
   }
 
   /**
