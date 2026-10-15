@@ -23,7 +23,6 @@ dependencies:
     - node.type.stanford_publication
     - taxonomy.vocabulary.basic_page_types
     - taxonomy.vocabulary.event_audience
-    - taxonomy.vocabulary.media_content_filters
     - taxonomy.vocabulary.media_content_types
     - taxonomy.vocabulary.media_tags
     - taxonomy.vocabulary.opportunity_sponsor
@@ -51,12 +50,11 @@ dependencies:
     - pathauto
     - scheduler
     - stanford_policy
+    - trustee_profile
     - stanford_publication
     - system
     - taxonomy
     - toolbar
-    - trustee_profile
-    - ui_patterns_library
     - view_unpublished
     - views_bulk_edit
 id: site_editor

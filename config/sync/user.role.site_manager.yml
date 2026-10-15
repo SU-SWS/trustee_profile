@@ -74,12 +74,11 @@ dependencies:
     - search_api_exclude_entity
     - stanford_migrate
     - stanford_policy
+    - trustee_profile
     - stanford_publication
     - system
     - taxonomy
     - toolbar
-    - trustee_profile
-    - ui_patterns_library
     - view_unpublished
     - views_bulk_edit
 id: site_manager
