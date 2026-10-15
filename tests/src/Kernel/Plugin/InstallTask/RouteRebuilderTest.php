@@ -5,6 +5,8 @@ namespace Drupal\Tests\trustee_profile\Kernel\Plugin\InstallTask;
 use Drupal\Core\Routing\RouteBuilderInterface;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\trustee_profile\Plugin\InstallTask\RouteRebuilder;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Class RouteRebuilderTest.
