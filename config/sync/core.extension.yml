@@ -5,7 +5,6 @@ module:
   address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
-  allowed_formats: 0
   autologout: 0
   basic_auth: 0
   better_exposed_filters: 0
@@ -234,7 +233,6 @@ module:
   ui_patterns: 0
   ui_patterns_views: 0
   ultimate_cron: 0
-  update: 0
   user: 0
   view_unpublished: 0
   viewfield: 0
@@ -259,7 +257,6 @@ module:
   externalauth: 10
   menu_link_weight: 10
   stanford_profile_helper: 10
-  trustee_profile_helper: 10
   paragraphs: 11
   trustee_profile: 1000
 theme:

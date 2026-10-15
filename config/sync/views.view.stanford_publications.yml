@@ -1516,39 +1516,8 @@ display:
       row:
         type: 'entity:node'
         options:
-          default_field_elements: false
-          inline:
-            type: '0'
-            view_node: '0'
-            su_url: '0'
-            title: '0'
-            su_publication_topics_1: '0'
-            edit_node: '0'
-          separator: ''
-          hide_empty: false
-          pattern: card
-          pattern_variant: default
-          pattern_mapping:
-            'views_row:type':
-              plugin: views_row
-              source: type
-              destination: card_super_headline
-              weight: 0
-            'views_row:edit_node':
-              plugin: views_row
-              source: edit_node
-              destination: card_body
-              weight: 1
-            'views_row:title':
-              plugin: views_row
-              source: title
-              destination: card_headline
-              weight: 2
-            'views_row:su_publication_topics_1':
-              plugin: views_row
-              source: su_publication_topics_1
-              destination: card_body
-              weight: 3
+          relationship: none
+          view_mode: teaser
       defaults:
         title: false
         css_class: false

@@ -59,6 +59,14 @@ class MediaCest {
     $transcriptUri = $fs->copy(__DIR__ . '/transcript.srt', 'public://transcript.srt');
     $transcriptFile = $I->createEntity(['uri' => $transcriptUri], 'file');
 
+    $firstVideo = $mediaVideos[0];
+    unset($mediaVideos[0]);
+    $mediaClips = array_map(fn($media) => $I->createEntity([
+      'type' => 'stanford_media',
+      'title' => $media->label(),
+      'su_media_audio_video' => [$media->id()],
+    ]), $mediaVideos);
+
     $mediaNode = $I->createEntity([
       'type' => 'stanford_media',
       'title' => $this->faker->words(4, TRUE),
