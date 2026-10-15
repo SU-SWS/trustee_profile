@@ -258,7 +258,7 @@ module:
   menu_link_weight: 10
   stanford_profile_helper: 10
   paragraphs: 11
-  stanford_profile: 1000
+  trustee_profile: 1000
 theme:
   claro: 0
   minimally_branded_subtheme: 0
