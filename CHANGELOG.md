@@ -1,5 +1,83 @@
 # Trustee Profile
 
+7.0.0
+-------------------------------------------------------------------------------
+262f8331 13.0.10
+deae9b4c D8Core-8558: Updating editoria11y settings (#1121)
+9ecf240e D8CORE-9045: Add data-nosnippet to views and teaser field (#1123)
+e174116c Fix inheritance issues (#90)
+72ea4d1e STVP: Split AV items into separate pages (#1122)
+690aa525 Updated book configuration settings (#1120)
+83fa334f Adjust SDR style to ensure minimum 800px size
+b50a0ecd Updated mathjax to v4
+6cea39ff Update entity usage settings for contrib supported feature (#1119)
+a4ef94d4 Tests: Fix media linking around an image in the wysiwyg (#1118)
+fb9a50e6 Updated book, graphql, graphql_compose, Imagick, Editoria11y, and extlink (#1117)
+d73e1ff3 Refactor deprecated code and functions to prepare for D12 (#1116)
+9b79b26e Update to drupal 11.4
+edee5b96 Adjusted home page acceptance test (#1115)
+9401318d 13.0.8
+d89341d1 Change opportunity cards to squares
+3fc90a59 D8CORE-8670: Remove media_content_filters permissions for site editor (#1113)
+8f0c4e55 D8CORE-8526: Add publication_filters permissions for site_manager role (#1112)
+ad056bd7 Remove event schedule view that is not used (#1111)
+7ae54b30 Fixed event series cards
+4e5eebfd 13.0.7
+dbb25767 Updated config from ui patterns
+b41d9bc4 13.0.5
+6abdc97e Fix local footer content sizes
+2b838c6d 13.0.4
+ea68c6b3 Fixed card displays for news and A/V (#1107)
+d0ea8971 13.0.3
+ded3f240 Reduce markup for basic page teaser cards around the image
+1873e527 13.0.2
+c57e9669 Adjusted local footer to support minimal branded theme
+71c10d7c Fix news cards with no publishing date (#1104)
+fc3d6384 13.0.0
+d04ee365 D8CORE-8906: Adjusted styles for SDR on AV node page
+feca6869 Exclude pages with nobots from sitemap
+d27fc68f Move local footer links to an array
+05e08db9 Updated diff module (#1102)
+3f6bf358 Removed DS module dependencies (#1101)
+b7e883c1 Fixed issue with basic page card displays
+e36bfc54 Fixed config after fresh install
+f57d2588 D8CORE-8899: Fix comma position on A/V Page
+309173e8 D8CORE-8895: Fix field display on A/V cards
+c8889cea D8CORE-8894: Add caret to opportunity and publication cards
+5aa13a73 D8CORE-8893: Adjusted basic page card image style
+d536d413 D8CORE-8892: Fix policy teaser display
+1e3a714a D8CORE-8891: Added spacing below related views on people pages
+6ece775f D8CORE-8890: Applied spotlight styles for news cards
+64a873e9 Fix site logo url in local footer
+cd550286 D8CORE-7942: Schedule unpublish for News, Events, People, Opportunities (#1061)
+1b5f6c25 D8CORE-8533: Build out event filter list and card grid (#1099)
+6a3ad87f D8CORE-8855: Create hotfix style sheet that loads from github pages (#1098)
+77af00c2 D8CORE-8809: Added SDR Media type and added to AV node and wysiwygs (#1097)
+4223ce88 Allow user to exclude a page from search and configure schema metatags (#1096)
+3b222bd5 Disable ui_patterns_blocks
+16983256 Remove old update hooks
+cfb75258 Convert procedural hooks into OOP hooks (#1095)
+d29db2bb Updated release workflow
+0bd58aa1 Refactor display logic to use SDC instead of UI Patterns' (#1094)
+de32dc2a Added AV and Opportunity content to sitemap
+8a91a53e 12.2.4
+b5b08a94 Updated content_lock settings (#1091)
+55ad3d66 12.2.3
+426fe977 Created barebones theme Jemison (#1089)
+964f7136 D8CORE-8721: Added a comma between fields (#1088)
+d2c99b86 Upgrade drupal core to 11.3 (#1047)
+0c7079f7 Updated name field configs
+3af8f194 Updated pathauto settings from contrib update
+6d0cf9db Adjust redirect tests (#1086)
+ddd142ab Update tests for media and redirects (#1085)
+f8e38dab Added hit item click event
+94f23952 Exclude items from search indexing if they are in the trash
+e92d9d6f Updated config (#1083)
+ffbb3db8 12.2.2
+07c2bf8e Run tests on PHP 8.4 & 8.5 (#1079)
+6ba35db6 D8CORE-8658: Update aria-label for secondary navigation (#1078)
+a00eccc8 Uninstall js_cookie
+
 6.1.0
 -------------------------------------------------------------------------------
 06009f28 Adjust printable.settings.
