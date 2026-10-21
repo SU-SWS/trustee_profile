@@ -223,7 +223,10 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Drupal\\Tests\\trustee_profile\\": "tests/src"
+            "Drupal\\Tests\\trustee_profile\\": "tests/src",
+            "Drupal\\Tests\\trustee_jemison\\": "themes/jemison/tests/src",
+            "Drupal\\Tests\\trustee_stanford_basic\\": "themes/stanford_basic/tests/src",
+            "Drupal\\Tests\\trustee_minimally_branded_subtheme\\": "themes/minimally_branded_subtheme/tests/src"
         }
     },
     "extra": {
