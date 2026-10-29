@@ -1,5 +1,16 @@
 # Trustee Profile
 
+7.0.2
+-------------------------------------------------------------------------------
+bb61b383 13.0.12
+e10edd6c Updated contrib config
+1eec27d1 Updated metatag for 403 and 404 pages
+e6a0ef61 13.0.11
+45061bf5 Update migrate source plugins (#1128)
+ccd38cbb D8CORE-9064: Add consistent descriptions to all taxonomy vocabularies (#1126)
+13ece76f Fixup
+8f165b39 D8CORE-8661: Add help text to Audio/Visual content type fields (#1127)
+
 7.0.1
 -------------------------------------------------------------------------------
 Adjust theme test namespaces
